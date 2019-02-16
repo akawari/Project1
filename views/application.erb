@@ -8,9 +8,37 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <title>Student Tracking System</title>
+    <title>Student Tracking System 1.0</title>
   </head>
   <body>
+  	<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Student Tracking System V1.0 </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/students">All Students (Home) <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/students/new">Add New Student</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Enrolled Students</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Graduated Students</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Welcome Dean Selma Limam Mansar
+    </span>
+  </div>
+</nav>
+
+	<!-- Main Page Content -->
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
@@ -19,16 +47,14 @@
 			<div class="page-header">
 			    </br>
 				<h2>
-					Student Tracking System 1.0
+					Students
 				</h2>
 			</div>
 			<p>
 				<%= yield %> </br></br>
 				
 			</p>
-			<div>
-			    <a href="/students/views/new">New Student</a></a>
-			</div>
+
 		</div>
 		<div class="col-md-2">
 		</div>

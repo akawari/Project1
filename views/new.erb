@@ -2,7 +2,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Add New Student Form</legend>
+<legend>New Student Form</legend>
 
 <!-- Text input-->
 <div class="form-group">
@@ -44,9 +44,19 @@
   </div>
 </div>
 
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="status">Status</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="status-0">
+      <input type="radio" name="status" id="status-0" value="Enrolled" checked="checked">
+      Enrolled
+    </label>
+  </div>
+</div>
+
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="submit">Submit</label>
   <div class="col-md-4">
     <button id="submit" name="submit" class="btn btn-primary">Submit</button>
   </div>

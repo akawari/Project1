@@ -16,7 +16,7 @@ get '/students' do
 end
 
 #new
-get '/students/views/new' do
+get '/students/new' do
     erb :application do
         erb :new
     end
