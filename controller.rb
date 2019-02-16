@@ -1,67 +1,66 @@
 require 'sinatra'
+require_relative './database.rb'
 
+#Main redirect:
 get '/' do
     redirect '/students'
 end
 
-#The array:
-students = %w(burger fries shake coffee)
-
-#index
+#index:
 get '/students' do
-    @all_students = students
+    db = DBHandler.new
+    @all_students = db.all
     erb :application do
-      erb :index
+        erb :index
     end
 end
 
-#new
+#new:
 get '/students/new' do
-    erb :application do
-        erb :new
+  erb :application do
+      erb :new
     end
 end
 
-#show
-get '/students/:id' do
-    @student_info = students[params[:id].to_i]
-    erb :application do
-      erb :show
-    end
-end 
+#create:
+post '/students' do
+   db = DBHandler.new
+   db.create(params[:fname], params[:lname], params[:email], params[:major], params[:status])
+   redirect to '/students'
+end
 
-#edit
+#show:
+get '/students/:id' do
+    id = params[:id].to_i
+    db = DBHandler.new
+    @student_item = db.get(id)
+    erb :application do
+        erb :show
+    end
+end
+
+#edit:
 get '/students/:id/edit' do
-   @student_info = students[params[:id].to_i]
-   @id = params[:id].to_i
+   id = params[:id].to_i
+   db = DBHandler.new
+   @student_item = db.get(id)
    erb :application do
        erb :edit
     end
 end
 
-#update
-patch '/students/:id' do 
-    students[params[:id].to_i] = params[:newstudent]
-    @all_students = students
-    erb :application do
-        erb :index
-    end
+#update:
+patch '/students/:id' do
+    id = params[:id].to_i
+    db = DBHandler.new
+    db.update(id, params[:fname], params[:lname], params[:email], params[:major], params[:status])
+    redirect to '/students'
 end
 
-#create
-post '/students' do
-   students << params[:newstudent]
-   @all_student = student
-   erb :application do
-       erb :index
-    end
-end
-
-#destroy
-get '/student/:id/delete' do
-    students.delete_at(params[:id].to_i)
-    @all_students = students
-    erb :application do
-        erb :index
-    end
+#delete:
+get '/students/:id/delete' do
+    id = params[:id].to_i
+    db = DBHandler.new
+    db.destroy(id)
+    redirect to '/students'
 end
