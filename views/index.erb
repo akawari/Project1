@@ -1,5 +1,7 @@
 </br>
 
+<% if request.path_info == '/students' %>
+
 <h2>
     All Students
 </h2>
@@ -35,3 +37,74 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
+<% if request.path_info == '/students/enrolled' %>
+
+<h2>
+    Enrolled Students
+</h2>
+
+</br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Major</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+      <% @all_enrolled.each do |id, fname, lname, email, major, status| %>
+      <tr>
+      <th scope="row"><a href = "/students/<%= id %>"> <%= id %></a></th>
+      <td><%= fname %></td>
+      <td><%= lname %></td>
+      <td><%= email %></td>
+      <td><%= major %></td>
+      <td><%= status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if request.path_info == '/students/graduated' %>
+<h2>
+    Graduated Students
+</h2>
+
+</br>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Major</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+      <% @all_graduated.each do |id, fname, lname, email, major, status| %>
+      <tr>
+      <th scope="row"><a href = "/students/<%= id %>"> <%= id %></a></th>
+      <td><%= fname %></td>
+      <td><%= lname %></td>
+      <td><%= email %></td>
+      <td><%= major %></td>
+      <td><%= status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>

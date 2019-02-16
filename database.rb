@@ -107,7 +107,7 @@ class DBHandler
     
     def update(id, fname, lname, email, major, status)
        begin
-         db = SQLite3::Database.open "food.db"
+         db = SQLite3::Database.open "student.db"
          dbstatement = "UPDATE Students SET FirstName='#{fname}', LastName='#{lname}', Email='#{email}', Major='#{major}', Status='#{status}' WHERE Id='#{id}';"
          db.execute dbstatement
        rescue SQLite3::Exception => e

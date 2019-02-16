@@ -1,0 +1,74 @@
+</br>
+
+<form class="form-horizontal" method="POST" action="https://myfavoriteclass-67272-akawari.c9users.io/students/<%= @student_item[0][0] %>">
+    <input type="hidden" name="_method" value='patch'>
+<fieldset>
+
+<!-- Form Name -->
+<legend>Student Details</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="firstname">First Name</label>  
+  <div class="col-md-4">
+  <input id="fname" name="fname" type="text" value="<%= @student_item[0][1]%>" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="lastname">Last Name</label>  
+  <div class="col-md-4">
+  <input id="lname" name="lname" type="text" value="<%= @student_item[0][2]%>" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="email">Email Address</label>  
+  <div class="col-md-4">
+  <input id="email" name="email" type="text" value="<%= @student_item[0][3]%>" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="major">Select Major</label>
+  <div class="col-md-4">
+    <select id="major" name="major" class="form-control">
+      <option value="<%= @student_item[0][4]%>" selected hidden><%= @student_item[0][4] %></option>
+      <option value="Information Systems">Information Systems</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Business Administration">Business Administration</option>
+      <option value="Biological Sciences">Biological Sciences</option>
+    </select>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="status">Enrollment Status</label>
+  <div class="col-md-4"> 
+    <label class="radio-inline" for="status-0">
+      <input type="radio" name="status" id="status-0" value="Enrolled" checked="checked">
+      Enrolled
+    </label> 
+    <label class="radio-inline" for="status-1">
+      <input type="radio" name="status" id="status-1" value="Graduated">
+      Graduated
+    </label>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-4">
+    <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+
+</fieldset>
+</form>

@@ -10,6 +10,24 @@ end
 get '/students' do
     db = DBHandler.new
     @all_students = db.all
+    @all_enrolled = db.all_enrolled
+    @all_graduated = db.all_graduated
+    erb :application do
+        erb :index
+    end
+end
+
+get '/students/enrolled' do
+    db = DBHandler.new
+    @all_enrolled = db.all_enrolled
+    erb :application do
+        erb :index
+    end
+end
+
+get '/students/graduated' do
+    db = DBHandler.new
+    @all_graduated = db.all_graduated
     erb :application do
         erb :index
     end
